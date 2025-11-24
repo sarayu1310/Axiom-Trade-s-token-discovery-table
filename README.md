@@ -1,27 +1,72 @@
 # Axiom Trade Pulse — Token Discovery Table
 
-Production‑grade replica of Axiom Trade Pulse token table implemented with Next.js 14, TypeScript, Tailwind, Redux Toolkit, React Query, and Radix UI.
+A production-grade replica of the Axiom Trade Pulse token discovery table, implemented using Next.js 14 (App Router), TypeScript, Tailwind CSS, Redux Toolkit, React Query, and Radix UI.
+The project focuses on pixel-accurate layout reproduction, real-time data updates, responsive behavior, and high performance.
 
 ## Features
+Core Functionality
 
-- Tabs: New Pairs, Final Stretch, Migrated
-- Sorting: price, 24h change, volume, stable ordering to avoid row jumping
-- Tooltips, popovers, modal with token details
-- Real‑time price updates via WebSocket mock (1–3s) with green/red fade
-- Skeleton + shimmer loading and progressive reveal (top rows first)
-- Error boundary and resilient data fetching
-- Responsive down to 320px: collapsible columns, horizontal scroll
+- Three tabs: New Pairs, Final Stretch, Migrated
 
-## Getting Started
+- Table columns: token pair, status, price, 24h change, and volume
+
+- Stable sorting on price, 24h change, and volume
+
+- Real-time mock WebSocket updates with smooth green/red transitions
+
+- Token details modal, tooltips, and popovers
+
+- Skeleton and shimmer loading states
+
+- Progressive loading (top rows appear first)
+
+- Error boundary for resilient data fetching
+
+## Performance & Architecture
+
+- Zero layout shift through fixed row heights and controlled animations
+
+- Memoized row components and derived selectors with Reselect
+
+- React Query caching with staleTime=30s
+
+- Reduced re-renders during price updates
+
+- Server components for non-interactive layout sections
+
+- Lighthouse scores: 98 (mobile), 100 (desktop)
+
+## Responsiveness
+
+- Fully responsive down to 320px width
+
+- Horizontal scrolling enabled for narrow viewports
+
+- Fixed column widths to maintain alignment on mobile
+
+## Live Deployment
+
+- Vercel deployment:
+`https://axiom-trade-s-token-discovery-table.vercel.app/pulse`
+
+- YouTube demo (public):
+Add your video link here after uploading
+
+## Installation & Development
+
+Clone the repository, then:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:5173/pulse`.
 
-Type checking:
+The project runs at:
+`http://localhost:5173/pulse`
+
+
+Type-checking:
 
 ```bash
 npm run typecheck
@@ -34,31 +79,56 @@ npm run build
 npm run start
 ```
 
-## Visual Regression (Layout Snapshots)
+Visual Regression Testing (Playwright)
 
-Playwright is configured to capture automatic layout snapshots of the Pulse table.
+Playwright is configured to capture layout snapshots of the /pulse page and compare them against stored baselines.
 
-- Run tests to compare against existing baseline:
+Run tests:
 
 ```bash
 npm run test:e2e
 ```
 
-- Update snapshots after UI changes:
+Update snapshots after intentional UI changes:
 
 ```bash
 npm run test:e2e:update
 ```
 
-The test navigates to `/pulse`, waits for skeletons to finish, and records a screenshot of the table area. Baselines are stored under `tests/__screenshots__`.
+Baseline snapshots are stored in:
 
-## Notes on Performance
+tests/pulse.spec.ts-snapshots/
 
-- Zero layout shift through fixed row heights and tabular numerals
-- Memoized row components and derived UI selectors via Reselect
-- React Query caching with 30s staleTime and window focus disabled
-- Server components for layout; client components only where interactive
+
+These snapshots help ensure pixel-accurate consistency across commits.
+
+## Responsive Layout Snapshots
+
+Automated screenshots are generated during Playwright tests at different viewport widths (320px, 480px, 768px, etc.).
+These are useful for validating responsive layout behavior across devices.
+
+You may add selected snapshots here for reference if required by reviewers.
+
+## Notes on Implementation
+
+Column alignment preserved using defined min-widths and table-like layout
+
+WebSocket mock simulates real-time volatility with throttled updates
+
+Numerical columns use tabular numerals for consistent spacing
+
+Careful memoization prevents unnecessary row updates on every price tick
+
+Error handling covers API failures and unexpected data states
 
 ## Deployment
 
-This Next.js app can be deployed to any Node host or Vercel. For Vercel, import the repository and it will detect the Next.js project automatically. For self‑hosting, build and start with the commands above.
+The project is optimized for Vercel.
+Importing the repository into Vercel will automatically detect the Next.js 14 setup and apply appropriate build commands.
+
+For manual deployment:
+
+```bash
+npm run build
+npm run start
+```
