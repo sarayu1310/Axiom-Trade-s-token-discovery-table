@@ -79,7 +79,7 @@ npm run build
 npm run start
 ```
 
-Visual Regression Testing (Playwright)
+## Visual Regression Testing (Playwright)
 
 Playwright is configured to capture layout snapshots of the /pulse page and compare them against stored baselines.
 
@@ -96,9 +96,9 @@ npm run test:e2e:update
 ```
 
 Baseline snapshots are stored in:
-
+```bash
 tests/pulse.spec.ts-snapshots/
-
+```
 
 These snapshots help ensure pixel-accurate consistency across commits.
 
@@ -107,19 +107,20 @@ These snapshots help ensure pixel-accurate consistency across commits.
 Automated screenshots are generated during Playwright tests at different viewport widths (320px, 480px, 768px, etc.).
 These are useful for validating responsive layout behavior across devices.
 
-You may add selected snapshots here for reference if required by reviewers.
+Auto-layout Snapshot
+![Auto Layout](public/snapshots/auto-snapshot.png)
 
 ## Notes on Implementation
 
-Column alignment preserved using defined min-widths and table-like layout
+- Column alignment preserved using defined min-widths and table-like layout
 
-WebSocket mock simulates real-time volatility with throttled updates
+- WebSocket mock simulates real-time volatility with throttled updates
 
-Numerical columns use tabular numerals for consistent spacing
+- Numerical columns use tabular numerals for consistent spacing
 
-Careful memoization prevents unnecessary row updates on every price tick
+- Careful memoization prevents unnecessary row updates on every price tick
 
-Error handling covers API failures and unexpected data states
+- Error handling covers API failures and unexpected data states
 
 ## Deployment
 
