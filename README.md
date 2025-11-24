@@ -108,7 +108,7 @@ Automated screenshots are generated during Playwright tests at different viewpor
 These are useful for validating responsive layout behavior across devices.
 
 Auto-layout Snapshot
-![Auto Layout](public/snapshots/auto-snapshot.png)
+![Auto Layout](public/snapshots/auto_snapshot.png)
 
 ## Notes on Implementation
 
