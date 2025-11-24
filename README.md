@@ -50,7 +50,7 @@ Core Functionality
 `https://axiom-trade-s-token-discovery-table.vercel.app/pulse`
 
 - YouTube demo (public):
-Add your video link here after uploading
+`https://youtu.be/AAyPPHGhWFs`
 
 ## Installation & Development
 
