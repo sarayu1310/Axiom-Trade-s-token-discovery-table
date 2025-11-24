@@ -49,13 +49,14 @@ export default function TokenTable() {
 
   return (
     <div className="rounded-lg bg-brand.surface p-3 shadow-soft overflow-x-auto">
-      <div className="grid grid-cols-[180px_1fr_120px_100px_140px] items-center gap-3 border-b border-white/10 px-3 pb-2">
-        <div className="text-xs uppercase tracking-wide text-gray-400">Token</div>
-        <div className="text-xs uppercase tracking-wide text-gray-400">Status</div>
-        <SortableHeader label="Price" sortKey="price" className="justify-end" />
-        <SortableHeader label="24h" sortKey="change" className="justify-end" />
-        <SortableHeader label="Volume" sortKey="volume" className="justify-end" />
-      </div>
+      <div className="min-w-[820px]">
+        <div className="grid grid-cols-[180px_1fr_120px_100px_140px] items-center gap-3 border-b border-white/10 px-3 pb-2">
+          <div className="text-xs uppercase tracking-wide text-gray-400">Token</div>
+          <div className="text-xs uppercase tracking-wide text-gray-400">Status</div>
+          <SortableHeader label="Price" sortKey="price" className="justify-end" />
+          <SortableHeader label="24h" sortKey="change" className="justify-end" />
+          <SortableHeader label="Volume" sortKey="volume" className="justify-end" />
+        </div>
       {isLoading && (
         <div className="mt-2 space-y-2">
           {Array.from({ length: progressCount }).map((_, i) => (
@@ -70,6 +71,7 @@ export default function TokenTable() {
           ))}
         </div>
       )}
+      </div>
     </div>
   )
 }

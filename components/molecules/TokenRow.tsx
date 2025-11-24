@@ -18,7 +18,7 @@ function Row({ token }: Props) {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <div className="grid grid-cols-[180px_1fr_120px_100px_140px] max-md:grid-cols-[180px_1fr_120px] items-center gap-3 rounded-md px-3 py-2 hover:bg-white/5">
+        <div className="grid grid-cols-[180px_1fr_120px_100px_140px] items-center gap-3 rounded-md px-3 py-2 hover:bg-white/5">
           <div className="flex items-center gap-2">
             <img src={token.logoUrl} alt={token.symbol} className="h-6 w-6 rounded" />
             <div className="flex flex-col">
@@ -39,7 +39,7 @@ function Row({ token }: Props) {
           </div>
           <PriceCell symbol={token.symbol} price={price} />
           <ChangeCell change={token.change24h} />
-          <div className="text-right text-sm text-gray-300 min-w-[140px] max-md:hidden">{formatPrice(token.volume24h)}</div>
+          <div className="text-right text-sm text-gray-300 min-w-[140px]">{formatPrice(token.volume24h)}</div>
         </div>
       </Dialog.Trigger>
       <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-lg bg-brand.surface p-6 shadow-soft">

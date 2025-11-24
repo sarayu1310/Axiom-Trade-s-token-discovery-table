@@ -10,7 +10,7 @@ export default function ChangeCell({ change }: Props) {
   return (
     <div
       className={cn(
-        'rounded-sm px-2 py-1 text-right min-w-[100px]',
+        'rounded-sm px-2 py-1 text-right min-w-[100px] max-md:min-w-[72px]',
         up ? 'text-green-400' : 'text-red-400'
       )}
     >

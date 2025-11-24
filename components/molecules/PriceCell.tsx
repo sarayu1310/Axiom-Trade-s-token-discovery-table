@@ -20,7 +20,7 @@ export default function PriceCell({ symbol, price }: Props) {
   return (
     <div
       className={cn(
-        'fade-up tabular-nums rounded-sm px-2 py-1 text-right min-w-[120px]',
+        'fade-up tabular-nums rounded-sm px-2 py-1 text-right min-w-[120px] max-md:min-w-[90px]',
         pulse === 'up' && 'price-up',
         pulse === 'down' && 'price-down'
       )}

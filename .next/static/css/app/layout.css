@@ -650,6 +650,9 @@ video {
 .min-w-\[140px\] {
   min-width: 140px;
 }
+.min-w-\[820px\] {
+  min-width: 820px;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -939,8 +942,20 @@ body {
     display: none;
   }
 
+  .max-md\:min-w-\[90px\] {
+    min-width: 90px;
+  }
+
+  .max-md\:min-w-\[72px\] {
+    min-width: 72px;
+  }
+
   .max-md\:grid-cols-\[180px_1fr_120px\] {
     grid-template-columns: 180px 1fr 120px;
+  }
+
+  .max-md\:grid-cols-\[140px_1fr_120px\] {
+    grid-template-columns: 140px 1fr 120px;
   }
 }
 
